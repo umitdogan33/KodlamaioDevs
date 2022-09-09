@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Application.Features.ProgrammingLanguages.Queries.GetListBrand
 {
-    public class GetListProgrammingLanguageQuery:IRequest<GetListProgrammingLanguageDto>
+    public class GetListProgrammingLanguageQuery:IRequest<IList<GetListProgrammingLanguageDto>>
     {
 
     }

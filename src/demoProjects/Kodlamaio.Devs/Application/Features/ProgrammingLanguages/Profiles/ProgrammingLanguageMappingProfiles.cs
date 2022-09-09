@@ -1,6 +1,7 @@
 ﻿using Application.Features.ProgrammingLanguages.Commands.CreateBrand;
 using Application.Features.ProgrammingLanguages.Commands.UpdateBrand;
 using Application.Features.ProgrammingLanguages.Dtos;
+using Application.Features.ProgrammingLanguages.Models;
 using Application.Features.ProgrammingLanguages.Queries.GetListBrand;
 using AutoMapper;
 using Domain.Entities;
@@ -22,6 +23,8 @@ namespace Application.Features.ProgrammingLanguages.Profiles
             CreateMap<ProgrammingLanguage, DeletedProgrammingLanguageDto>().ReverseMap();
             CreateMap<ProgrammingLanguage, UpdateProgrammingLanguageCommand>().ReverseMap();
             CreateMap<ProgrammingLanguage, UpdatedProgrammingLanguageDto>().ReverseMap();
+            CreateMap<ProgrammingLanguage, GetListProgrammingLanguageModel>().ReverseMap();
+            CreateMap<ProgrammingLanguage, GetByIdProgrammingLanguageDto>().ReverseMap();
         }
     }
 }

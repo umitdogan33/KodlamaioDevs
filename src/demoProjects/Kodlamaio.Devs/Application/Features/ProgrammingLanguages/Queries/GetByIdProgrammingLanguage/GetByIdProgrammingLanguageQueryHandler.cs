@@ -26,10 +26,8 @@ namespace Application.Features.ProgrammingLanguages.Queries.GetByIdProgrammingLa
         {
             //var mappedData = mapper.Map<ProgrammingLanguage>(request);
             var data = await repository.GetAsync(p => p.Id == request.Id);
-            return new()
-            {
-                ProgrammingLanguage = data
-        };
+            var mappedData = mapper.Map<GetByIdProgrammingLanguageDto>(data);
+            return mappedData;
         }
     }
 }

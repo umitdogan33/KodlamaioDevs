@@ -1,4 +1,5 @@
 ﻿using Application.Features.ProgrammingLanguages.Dtos;
+using Application.Features.ProgrammingLanguages.Models;
 using Application.Services.Repositories;
 using AutoMapper;
 using MediatR;
@@ -10,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Application.Features.ProgrammingLanguages.Queries.GetListBrand
 {
-    public class GetListProgrammingLanguageHandler : IRequestHandler<GetListProgrammingLanguageQuery, GetListProgrammingLanguageDto>
+    public class GetListProgrammingLanguageHandler : IRequestHandler<GetListProgrammingLanguageQuery, IList<GetListProgrammingLanguageDto>>
     {
         private readonly IMapper mapper;
         private readonly IProgrammingLanguageRepository repository;
@@ -21,16 +22,17 @@ namespace Application.Features.ProgrammingLanguages.Queries.GetListBrand
             this.repository = repository;
         }
 
-        public async Task<GetListProgrammingLanguageDto> Handle(GetListProgrammingLanguageQuery request, CancellationToken cancellationToken)
+        public async Task<IList<GetListProgrammingLanguageDto>> Handle(GetListProgrammingLanguageQuery request, CancellationToken cancellationToken)
         {
             var totalProductCount = await repository.GetAllAsync();
+            var mappedData = mapper.Map<IList<GetListProgrammingLanguageDto>>(totalProductCount);
+            return mappedData;
             //var data = totalProductCount.Count();
-            var data = totalProductCount;
-            return new()
-            {
-                ProgrammingLanguages = data,
-                Count = data.Count()
-            };
+            //return new()
+            //{
+            //    ProgrammingLanguages = data,
+            //    Count = data.Count()
+            //};
         }
     }
 }

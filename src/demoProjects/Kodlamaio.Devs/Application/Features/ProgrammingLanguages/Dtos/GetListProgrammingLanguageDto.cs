@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Domain.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,7 @@ namespace Application.Features.ProgrammingLanguages.Dtos
 {
     public class GetListProgrammingLanguageDto
     {
-        public int Count { get; set; }
-        public object ProgrammingLanguages { get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; }
     }
 }

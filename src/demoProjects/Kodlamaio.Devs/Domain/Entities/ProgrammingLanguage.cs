@@ -19,6 +19,8 @@ namespace Domain.Entities
             Name = name;
         }
 
-        
+        public virtual ICollection<Technology> Technologies { get; set; }
+
+
     }
 }

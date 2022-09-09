@@ -1,4 +1,6 @@
-﻿using Application.Features.ProgrammingLanguages.Rules;
+﻿using Application.Features.AppUsers.Rules;
+using Application.Features.ProgrammingLanguages.Rules;
+using Application.Features.Socials.Rules;
 using Core.Application.Pipelines.Authorization;
 using Core.Application.Pipelines.Caching;
 using Core.Application.Pipelines.Logging;
@@ -24,6 +26,8 @@ namespace Application
             services.AddMediatR(Assembly.GetExecutingAssembly());
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
             services.AddScoped<ProgrammingLanguageBusinessRules>();
+            services.AddScoped<SocialBusinessRules>();
+            services.AddScoped<AppUserBusinessRule>();
             //services.AddTransient(typeof(IPipelineBehavior<,>), typeof(AuthorizationBehavior<,>));
             //services.AddTransient(typeof(IPipelineBehavior<,>), typeof(CachingBehavior<,>));
             //services.AddTransient(typeof(IPipelineBehavior<,>), typeof(CacheRemovingBehavior<,>));
