@@ -13,5 +13,10 @@ namespace Application.Features.Socials.Rules
         public async Task isbedatawhendelete(Social social) {
             if (social == null)  throw new BusinessException("data is nor found");
         }
+
+        public async Task domainCheck(string githubProfileUrl)
+        {
+            if (!githubProfileUrl.Contains("github.com/")) throw new BusinessException("please enter a valid url"); 
+        }
     }
 }
